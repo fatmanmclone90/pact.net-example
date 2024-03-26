@@ -1,0 +1,46 @@
+{
+  "consumer": {
+    "name": "consumer1"
+  },
+  "interactions": [
+    {
+      "description": "A GET request to /products",
+      "providerStates": [
+        {
+          "name": "There are products available"
+        }
+      ],
+      "request": {
+        "headers": {
+          "Accept": "application/json"
+        },
+        "method": "GET",
+        "path": "/products"
+      },
+      "response": {
+        "body": [
+          {
+            "description": "fork",
+            "id": 1
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pactRust": {
+      "ffi": "0.4.0",
+      "models": "1.0.4"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "ProductsAPI"
+  }
+}
