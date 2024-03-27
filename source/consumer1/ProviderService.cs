@@ -5,9 +5,9 @@ using System.Text.Json;
 namespace consumer1;
 
 /// <summary>
-/// Seems to need to be re-fatored out of program to allow PACT to interact with it in the consumer tests.
+/// Seems to need to be re-factored out of program to allow PACT to interact with it in the consumer tests.
 /// </summary>
-public class ProviderService
+public class ProviderService : IProviderService
 {
     private readonly HttpClient httpClient;
 

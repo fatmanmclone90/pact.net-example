@@ -14,9 +14,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{83FFD269-9721-455A-80C9-F42762182927}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{62F26541-DD05-47FE-92D2-9DB0F844BD2F}"
-	ProjectSection(SolutionItems) = preProject
-		TextFile1.txt = TextFile1.txt
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "producer", "source\producer\producer.csproj", "{A17301EC-0DF4-4811-916F-1F3A742DF972}"
 EndProject

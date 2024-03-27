@@ -5,9 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
-
 var settings = builder.Configuration.GetSection(nameof(Settings)).Get<Settings>();
+
+builder.Services.AddHttpClient<IProviderService, ProviderService>(o =>
+{
+    o.BaseAddress = new Uri(settings?.ProviderUrl ?? throw new ArgumentException("Provider Url is required"));
+});
+
+var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -19,12 +24,10 @@ app.UseHttpsRedirection();
 
 app.MapGet("/products/{id}", async (int id) =>
 {
-    var httpClient = new HttpClient
-    {
-        BaseAddress = new Uri(settings?.ProviderUrl ?? throw new ArgumentException("Provider Url is required")),
-    };
+    using var scope = app.Services.CreateScope();
+    var providerService = scope.ServiceProvider.GetRequiredService<IProviderService>();
 
-    return await new ProviderService(httpClient).Get(id);
+    return await providerService.Get(id);
 })
 .WithName("GetProduct")
 .WithOpenApi();
@@ -32,3 +35,7 @@ app.MapGet("/products/{id}", async (int id) =>
 app.MapGet("/health", () => Results.Ok());
 
 app.Run();
+
+// allows for integration testing
+public partial class Program
+{ }
