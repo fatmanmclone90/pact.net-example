@@ -22,6 +22,13 @@ PACTs are produced when the Consumer(s) tests execute, pacts are automatically p
 
 The provider is hard coded to download PACTs from this directory.
 
+## Integration Tests
+
+Solution contains examples of integration testing using the in-memory test server.
+
+- Consumer1 - Mocks the entire Provider Service
+- Consumer2 - Mocks the HTTP Client Handler
+
 ## Project Setup
 
 Creating solution:
@@ -49,4 +56,5 @@ dotnet sln add source\provider\provider.csproj
 ## To Do
 
 1. producer needs to be renamed to provider.
-1. Add in memory integration tests.
+1. Add in memory integration tests to provider
+1. FIX: unable to add readme to solution
