@@ -58,3 +58,4 @@ dotnet sln add source\provider\provider.csproj
 1. producer needs to be renamed to provider.
 1. Add in memory integration tests to provider
 1. FIX: unable to add readme to solution
+2. Consider using [ClassInitialize] for integration tests (equivalent of [IClassFixture](https://github.com/dotnet-labs/AngularFileUpload/blob/master/MyApp.IntegrationTests/WeatherForecastControllerTests.cs))
